@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Team</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+            font-family: sans-serif;
+        }
+        .banner{
+            width: 100%;
+            height: 100vh;
+            background-image: url("{{ url_for('static', filename='background.jpg') }}") ;
+            background-size: cover;
+            background-position: center;
+            backdrop-filter: blur(20px);
+        }
+        .blur-layer {
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            backdrop-filter: blur(10px); 
+            z-index: 1;
+        }
+        .navbar{
+            width: 85%;
+            margin: auto;
+            padding: 35px 0;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .logo{
+            width: 120px;
+            cursor: pointer;
+        }
+        .navbar ul li{
+            list-style: none;
+            display: inline-block;
+            margin: 0 20px;
+            position: relative;
+        }
+        .navbar ul li a{
+            text-decoration: none;
+            color: white;
+            text-transform: uppercase;
+        }
+        .navbar ul li::after{
+            content: '';
+            height: 3px;
+            width: 0;
+            background: navy;
+            position: absolute;
+            left: 0;
+            bottom: -10px;
+            transition: 0.5s;
+        }
+        .navbar ul li:hover::after{
+            width: 100%;
+        }
+        .about-section {
+            text-align: center;
+            color: white;
+            padding: 50px;
+        }
+
+        .about-section p {
+            margin-bottom: 8px;
+        }
+
+        .row {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .column {
+            width: 33.33%;
+            padding: 8px;
+        }
+
+        .card {
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+            margin: 8px;
+        }
+
+        .container {
+            padding: 16px;
+            color: white;
+        }
+
+        .title {
+            color: grey;
+        }
+
+        .button {
+            display: inline-block;
+            padding: 8px;
+            color: white;
+            background-color: #000;
+            text-align: center;
+            text-decoration: none; /* Tambahkan ini untuk menghilangkan garis bawah pada link */
+            border-radius: 4px; /* Tambahkan ini untuk menambahkan sudut pada tombol */
+        }
+
+        .button:hover {
+            background-color: #555;
+        }
+
+        @media screen and (max-width: 650px) {
+            .column {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+
+
+<div class="banner">
+  <div class="blur-layer">
+    <div class="navbar">
+        <img src="{{ url_for('static', filename='logo.png') }}" alt="Logo" class="logo">
+        <ul>
+            <li><a href="/home">Home</a></li>
+            <li><a href="/about">About</a></li>
+            <li><a href="/input">Predict</a></li>
+            <li><a href="recommendapp">Recommend APP</a></li>
+            <li><a href="information">Information</a></li>
+            <li><a href="ourteam">Our Team</a></li>
+        </ul>
+    </div>
+<div class="row">
+    <div class="column">
+        <div class="card">
+            <img src="{{ url_for('static', filename='/alun.jpg') }}" alt="Alun" style="width:100%">
+            <div class="container">
+                <h2>Alun Yuanita</h2>
+                <p class="title">164221001</p>
+                <p>Some text that describes me lorem ipsum ipsum lorem.</p>
+                <p><a href="mailto:alunyuanita@gmail.com" class="button">Contact</a></p>
+            </div>
+        </div>
+    </div>
+
+    <div class="column">
+        <div class="card">
+            <img src="{{ url_for('static', filename='/najla.jpg') }}" alt="Najla" style="width:100%">
+            <div class="container">
+                <h2>Najla Dhia</h2>
+                <p class="title">Art Director</p>
+                <p>Some text that describes me lorem ipsum ipsum lorem.</p>
+                <p><a href="mailto:najla@example.com" class="button">Contact</a></p>
+            </div>
+        </div>
+    </div>
+
+    <div class="column">
+        <div class="card">
+            <img src="{{ url_for('static', filename='/amel.jpg') }}" alt="Fradinka" style="width:100%">
+            <div class="container">
+                <h2>Fradinka Amelia</h2>
+                <p class="title">Designer</p>
+                <p>Some text that describes me lorem ipsum ipsum lorem.</p>
+                <p><a href="mailto:fradinka@example.com" class="button">Contact</a></p>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
